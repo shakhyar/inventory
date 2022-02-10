@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block header %}{% endblock %}
+
+{% block content %}
+
+<div class="bg-gray-900 min-h-screen pt-12 md:pt-20 pb-6 px-2 md:px-0" style="font-family:'Lato',sans-serif;">
+    <header class="max-w-lg mx-auto">
+        <a href="#">
+            <h1 class="text-4xl font-bold text-white text-center">Edit Quantity</h1>
+        </a>
+    </header>
+<main class="bg-black max-w-lg mx-auto p-8 md:p-12 my-10 rounded-lg shadow-2xl">
+    <section>
+        <h3 class="text-white font-bold text-2xl">Enter the new quantity</h3>
+        <p class="text-gray-600 pt-2"></p>
+        <p class="text-red-600 pt-4">{{msg}}</p>
+    </section>
+
+    <section class="mt-10">
+        <form class="flex flex-col" method="POST" action="#">
+            <div class="mb-6 pt-3 rounded bg-gray-200">
+                <label class="block text-gray-700 text-sm font-bold mb-2 ml-3" for="price">Quantity</label>
+                <input type="number" name="quantity" class="bg-gray-200 rounded w-full text-gray-700 focus:outline-none border-b-4 border-gray-300 focus:border-purple-600 transition duration-500 px-3 pb-3" value="{{
+          request.form.quantity}}">
+            </div>
+            <button class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 rounded shadow-lg hover:shadow-xl transition duration-200" type="submit">Change Ammount</button>
+        </form>
+    </section>
+</main>
+
+<footer class="max-w-lg mx-auto flex justify-center text-white">
+    <a href="#" class="hover:underline">Contact</a>
+    <span class="mx-3">•</span>
+    <a href="#" class="hover:underline">Privacy</a>
+</footer>
+</div>
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="text-gray-400 bg-gray-900 body-font">
+  <div class="container px-5 py-24 mx-auto">
+    <div class="flex flex-col text-center w-full mb-20">
+      <h1 class="sm:text-4xl text-3xl font-medium title-font mb-2 text-white">Yearly History</h1>
+      <p class="lg:w-2/3 mx-auto leading-relaxed text-base"></p>
+      <h2 class="sm:text-4xl text-3xl font-medium title-font mb-2 text-white">Total SP: {{worth[0]}} <br>
+      Total Profit: {{worth[1]}}</h2>
+    </div>
+    <div class="lg:w-2/3 w-full mx-auto overflow-auto">
+      <table class="table-auto w-full text-left whitespace-no-wrap">
+        <thead>
+          <tr>
+            <th class="px-4 py-3 title-font tracking-wider font-medium text-white text-sm bg-gray-800 rounded-tl rounded-bl">Month</th>
+            <th class="px-4 py-3 title-font tracking-wider font-medium text-white text-sm bg-gray-800">Price</th>
+            <th class="px-4 py-3 title-font tracking-wider font-medium text-white text-sm bg-gray-800">Profit</th>
+            <th class="w-10 title-font tracking-wider font-medium text-white text-sm bg-gray-800 rounded-tr rounded-br">Time Posted</th>
+            <th class="w-10 title-font tracking-wider font-medium text-white text-sm bg-gray-800 rounded-tr rounded-br"></th>
+          </tr>
+        </thead>
+        <tbody>
+        	<form method="POST" action="#">
+        	{% for i in history %}
+          <tr>
+            <td class="px-4 py-3 text-white">{{i[0]}}</td>
+            <td class="px-4 py-3 text-white">{{i[1]}}</td>
+            <td class="px-4 py-3 text-white">{{i[2]}}</td>
+            <td class="px-4 py-3 text-lg text-white">{{i[3]}}</td>
+            <td class="w-10 text-center">
+              <button value="delete:{{i[3]}}" name="btn" class="flex ml-auto text-white bg-indigo-500 border-0 py-1 px-4 focus:outline-none hover:bg-indigo-600 rounded">Delete</button>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody></form>
+      </table>
+    </div>
+  </div>
+</section>
+{% endblock %}
