@@ -97,7 +97,6 @@ def add_inventory():
 	else:		
 		return redirect(url_for('login'))
 
-
 @app.route('/edit_inventory/<pid>/<pr>', methods=["GET", "POST"])
 def edit_inventory(pid, pr):
 	if 'user' in session:
